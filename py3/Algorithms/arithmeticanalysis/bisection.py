@@ -14,4 +14,19 @@ def bisection(function,a , b):
         print("couldn't find root in [a,b]")
         return
     else:
-        mid = (start + end) /2
+        mid = (start + end) / 2
+        while abs(start - mid) > 0.0000001:
+            if function(mid) == 0:
+                return mid
+            elif function(mid) * function(start) < 0:
+                end = mid
+            else:
+                start = mid
+                mid = (start + end) / 2
+         return mid
+
+def f(x):
+    return math.pow(x, 3) - *x - 5
+
+print(bisection(f, 1, 1000))
+
